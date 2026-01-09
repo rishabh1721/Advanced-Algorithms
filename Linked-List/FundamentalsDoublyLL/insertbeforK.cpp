@@ -1,0 +1,89 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Node
+{
+public:
+  int data;
+  Node *next;
+  Node *back;
+
+  Node(int data1, Node *next1 = nullptr, Node *back1 = nullptr)
+      : data(data1), next(next1), back(back1) {}
+};
+
+Node *convertArrToDLL(vector<int> &arr)
+{
+  if (arr.empty())
+    return nullptr;
+
+  Node *head = new Node(arr[0]);
+  Node *prev = head;
+
+  for (int i = 1; i < arr.size(); i++)
+  {
+    Node *curr = new Node(arr[i]);
+    prev->next = curr;
+    curr->back = prev;
+    prev = curr;
+  }
+  return head;
+}
+
+void print(Node *head)
+{
+  while (head != nullptr)
+  {
+    cout << head->data << " ";
+    head = head->next;
+  }
+  cout << endl;
+}
+
+Node *insertBeforeK(Node *head, int k)
+{
+  if (head == nullptr)
+    return nullptr;
+
+  // If k is at head, insert before head
+  if (head->data == k)
+  {
+    Node *newNode = new Node(k);
+    newNode->next = head;
+    head->back = newNode;
+    return newNode;
+  }
+
+  Node *curr = head;
+
+  while (curr != nullptr)
+  {
+    if (curr->data == k)
+    {
+      Node *prevNode = curr->back;
+      Node *newNode = new Node(k);
+
+      prevNode->next = newNode;
+      newNode->back = prevNode;
+      newNode->next = curr;
+      curr->back = newNode;
+
+      break;
+    }
+    curr = curr->next;
+  }
+
+  return head;
+}
+
+int main()
+{
+  vector<int> arr = {2, 3, 5, 8};
+  Node *head = convertArrToDLL(arr);
+
+  head = insertBeforeK(head, 5); // delete 3rd element (5)
+  print(head);
+
+  return 0;
+}
