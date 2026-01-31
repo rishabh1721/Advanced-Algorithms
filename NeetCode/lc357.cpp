@@ -5,15 +5,15 @@ public:
   {
     if (n == 0)
       return 1;
-    int ans = 10;
+    int answer = 10;
     int unique = 9;
     int avail = 9;
     for (int i = 2; i <= n && avail > 0; i++)
     {
       unique *= avail;
-      ans += unique;
+      answer += unique;
       avail--;
     }
-    return ans;
+    return answer;
   }
 };
