@@ -38,3 +38,15 @@ public:
     return st.empty();
   }
 };
+
+int main()
+{
+  Solution solution;
+  string s = "{[()]}";
+  if (solution.isBalanced(s))
+    cout << "The string is balanced." << endl;
+  else
+    cout << "The string is not balanced." << endl;
+
+  return 0;
+}
