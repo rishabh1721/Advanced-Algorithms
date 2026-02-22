@@ -15,5 +15,6 @@ public:
       }
     }
     return cnt <= 1;
+    // int n = nums.size();
   }
 };
