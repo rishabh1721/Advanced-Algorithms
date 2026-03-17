@@ -4,6 +4,7 @@ class Book{
     private List<Boolean> isAvailable;
     public List<String> title;
     public List<String> author;
+    //
 
     public Book(List<String> title, List<String> author, List<Boolean> isAvailable){
         this.title = title;
