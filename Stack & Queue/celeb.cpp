@@ -17,7 +17,7 @@ class Solution {//
             }
             else{
                 top++;
-                down--;
+                down--;//
             }
             
         }
