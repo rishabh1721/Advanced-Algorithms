@@ -7,7 +7,7 @@ class Solution {//
     int celebrity(vector<vector<int>>& mat) {
         // code here//  // //////. // // // // //
         int n = mat.size(); //
-        int top = 0, down = n-1;//
+        int top = 0, down = n-1;//. //
         while(top < down){ //
             if(mat[top][down] == 1){
                 top++;
