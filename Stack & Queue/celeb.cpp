@@ -8,7 +8,7 @@ class Solution {//
         // code here//  // //////. // // // // //
         int n = mat.size(); //
         int top = 0, down = n-1;//. // //
-        while(top < down){ ////
+        while(top < down){ //// // 
             if(mat[top][down] == 1){
                 top++;
             }
