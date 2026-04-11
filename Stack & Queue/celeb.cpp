@@ -9,7 +9,7 @@ class Solution {//
         int n = mat.size(); //
         int top = 0, down = n-1;//. // //
         while(top < down){ //// //  //
-            if(mat[top][down] == 1){//
+            if(mat[top][down] == 1){// //xs. // //
                 top++;
             }
             else if(mat[down][top] == 1){
