@@ -9,7 +9,7 @@ public:
     Node(int x) {
         data = x;
         left = nullptr;
-        right = nullptr;
+        right = nullptr;//
     }
 };
 
