@@ -8,7 +8,7 @@ public:
 
     Node(int x) {
         data = x;
-        left = nullptr;
+        left = nullptr; //
         right = nullptr;//
     }
 };
