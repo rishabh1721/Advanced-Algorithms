@@ -4,7 +4,7 @@ using namespace std;
 class Node {
   public:
     int data;
-    Node* left;
+    Node* left;//
     Node* right;
 
     // Constructor to initialize a new node
