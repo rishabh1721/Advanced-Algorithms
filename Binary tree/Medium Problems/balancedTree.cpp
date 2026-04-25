@@ -5,7 +5,7 @@ class Node {
   public:
     int data;
     Node* left;//
-    Node* right;
+    Node* right; //
 
     // Constructor to initialize a new node
     Node(int val) {
