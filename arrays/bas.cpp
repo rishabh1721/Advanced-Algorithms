@@ -5,7 +5,7 @@ int main(){
 cout<<1<<""<<2<<""<<3<<endl;
 string name;
 cin>>name;
-cout<<name.size()<<endl;
+cout<<name.size()<<endl;//
 return 0;
 
 
