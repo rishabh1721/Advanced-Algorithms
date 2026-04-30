@@ -7,6 +7,6 @@ string name;
 cin>>name;
 cout<<name.size()<<endl;//
 return 0; //
-//
+////
 
 }//
