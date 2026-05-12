@@ -6,7 +6,7 @@ cout<<1<<""<<2<<""<<3<<endl;
 string name;
 cin>>name;
 cout<<name.size()<<endl;//
-return 0; //////
+return 0; ////////
 ////
 ////
 }////////s//////
