@@ -87,7 +87,7 @@ class Solution {
 
             for (int i = 0; i < size; i++) {
 
-                Node* current = q.front();
+                Node* current = q.front();//
 
                 q.pop();
 
