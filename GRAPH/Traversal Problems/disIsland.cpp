@@ -2,7 +2,7 @@
 #include <vector>
 #include <set>
 using namespace std;
-class Solution {
+class Solution {//
     private:
             void dfs(int row,int col,vector<vector<int>>& vis
             ,vector<vector<int>>& grid,vector<pair<int,int>>& vec
@@ -40,3 +40,38 @@ class Solution {
         return st.size();
     }
 };
+
+
+
+
+// int astonHall(){
+//   Solution sol;
+//   vector<vector<int>> grid = {{1,1,0,0,0},
+//                               {1,1,0,0,0},            
+//........................//
+
+//                               {0,0,0,1,1},
+//                               {0,0,0,1,1}};                     
+//  int ans = sol.countDistinctIslands(grid);
+//  cout<<ans;
+//  return 0;
+
+// }
+// // @main():int main : main ({
+// //   return astonHall();Q
+// // })
+
+
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+// 
