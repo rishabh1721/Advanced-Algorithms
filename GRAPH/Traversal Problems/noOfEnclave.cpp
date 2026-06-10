@@ -6,7 +6,10 @@ using namespace std;
 class Solution {
   public:
     int cntOnes(vector<vector<int>>& grid) {
-        // code here
+        // code here..as.size() ans grid[0].size()is used
+        // multiple times so storing in n and m
+        // and also to avoid TLE
+        // as we are using bfs and we are traversing the whole grid
         
         int n = grid.size();
         int m = grid[0].size();
