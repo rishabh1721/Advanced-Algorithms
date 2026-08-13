@@ -1,0 +1,215 @@
+#include <iostream>
+using namespace std;
+#include <vector>
+#include <unordered_map>
+#include <climits>
+#include <algorithm>
+#include <utility>
+#include <numeric>
+#include <cmath>
+#include <string>
+#include <map>
+#include <algorithm>
+#include <unordered_set>
+
+int maxScore(vector<int>& nums, int k) {
+        int n = nums.size();
+       int lsum = 0, rsum = 0, maxSum = 0;
+       for(int i=0; i<k; i++){
+        lsum += nums[i];
+        maxSum = max(maxSum , lsum);
+       }
+       int rindex = n-1;
+       for(int i=k-1; i >=0; i--){
+        lsum -= nums[i];
+        rsum += nums[rindex];
+        maxSum = max(maxSum , lsum+rsum);
+        rindex--;
+
+       }
+       return maxSum;
+
+
+    }
+
+ int lengthOfLongestSubstring(string s) {
+        vector<int> hash(256,-1);
+        int l=0, r=0, maxlen = 0;
+        int n = s.size();
+        while(r < n){
+            if(hash[s[r]] != -1){
+                if(hash[s[r]] >= l){
+                    l = hash[s[r]] + 1;
+
+                }
+            }
+            int len = r-l+1;
+            maxlen = max(len,maxlen);
+            hash[s[r]] = r;
+            r++;
+        }
+        return maxlen;
+    }
+
+int longestOnes(vector<int>& nums, int k) {
+       int l = 0, r= 0 , maxcnt = 0,zero = 0;
+       int n = nums.size();
+       while(r < n){
+        if(nums[r] == 0)zero++;
+        if(zero > k){
+            if(nums[l] == 0) zero--;
+            l++;
+        }
+        if(zero <= k){
+            int len = r-l+1;
+            maxcnt = max(maxcnt,len);
+        }
+        r++;
+       }
+       return maxcnt;
+
+    }
+
+     vector<int> twoSum(vector<int>& arr, int target) {
+      unordered_map<int,int>mpp;
+      int n= arr.size();
+      for(int i=0; i<n; i++){
+        int needed = target - arr[i];
+        if(mpp.find(needed) != mpp.end()){
+            return {i, mpp[needed]};
+        }
+        else mpp[arr[i]] = i;
+      }
+      return {};
+    }
+
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_set<int>seen;
+        for(int x : nums){
+            if(seen.find(x) != seen.end()){
+                return true;
+            }
+            seen.insert(x);
+        }
+        return false;
+    }
+
+    bool isAnagram(string s, string t) {
+        int n = s.size();
+        int m = t.size();
+        if(m != n) return false;
+        sort(s.begin(),s.end());
+        sort(t.begin(), t.end());
+        if(s==t) return true;
+        return false;
+
+    }
+
+    bool isAnagrammm(string s, string t) {
+        int n = s.size();
+        int m = t.size();
+        if(n != m) return false;
+        int freq[26] = {0};
+        for(char c : s){
+            freq[c-'a']++;
+        }
+        for(char c : t){
+            freq[c-'a']--;
+            if(freq[c - 'a'] < 0) return false;
+        }
+
+        return true;
+        
+
+    }
+
+
+vector<int> topKFrequent(vector<int>& nums, int k) {
+      unordered_map<int,int>freq;
+      for(int x : nums){
+        freq[x]++;
+      }
+      vector<vector<int>>bucket(nums.size()+1);
+      for(auto it : freq){
+        int element = it.first;
+        int frequency = it.second;
+        bucket[frequency].push_back(element);
+      }
+      vector<int>ans;
+      for(int i= nums.size() ; i>=1; i--){
+        for(int element : bucket[i]){
+            ans.push_back(element);
+            if(ans.size() == k) return ans;
+        }
+      }
+      return ans;
+
+    }
+
+      vector<int> productExceptSelf(vector<int>& nums) {
+         int n = nums.size();
+         vector<int>ans(n);
+        
+         int prefix=1;
+
+         // prefix product
+        for(int i=0; i<n; i++){
+            ans[i] = prefix;
+            prefix *= nums[i];
+        }
+
+        int suffix = 1;
+
+         //suffix product
+         for(int i=n-1; i>=0; i--){
+            ans[i] *= suffix;
+            suffix *= nums[i];
+        }
+
+        return ans;
+      }
+
+       int maxSubArray(vector<int> &arr) {
+       int n = arr.size();
+       int sum =0;
+       int maxi = arr[0];
+       for(int x : arr){
+        sum += x;
+        maxi = max(sum,maxi);
+        if(sum < 0)sum = 0;
+       }
+       return maxi;
+       
+    }
+
+     int maxProductt(vector<int>& nums) {
+        int n = nums.size();
+        int prefix = 1, suffix = 1;
+        int maxi = INT_MIN;
+        for(int i =0; i< n ;i++){
+            if(prefix == 0) prefix = 1;
+            if(suffix == 0) suffix = 1;
+            prefix *= nums[i];
+            suffix *= nums[n-i-1];
+            maxi = max(maxi, max(prefix,suffix));
+        }
+        return maxi;
+    }
+
+
+      int maxProfit(vector<int>& prices) {
+        int ip = prices[0];
+        int maxProfit = 0;
+        for(int i=1; i<prices.size(); i++){
+            int profit = prices[i] - ip;
+            maxProfit = max(maxProfit , profit);
+            ip = min(ip, prices[i]);
+        }
+        return maxProfit;
+    }
+
+    //  bool isSorteddd(vector<int>& arr) {
+    //     // code here
+    //     return 40;
+        
+    // }

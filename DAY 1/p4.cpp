@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        int n = s.size();
+        int m = t.size();
+        if(n != m) return false;
+        vector<int>freq(26,0);
+        for(char c : s){
+            freq[c-'a']++;
+        }
+        for(char c : t){
+            freq[c-'a']--;
+        }
+        for(int x : freq){
+            if(x != 0) return false; 
+        }
+        return true;
+    }
+};
